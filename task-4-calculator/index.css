@@ -196,8 +196,8 @@ button:active {
 }
 
 .button-operator {
-  background: var(--operator-bg);
-  color: var(--operator-text);
+  background: var(--number-bg);
+  color: var(--number-text);
   box-shadow: 0 4px 0 var(--operator-shadow);
 }
 

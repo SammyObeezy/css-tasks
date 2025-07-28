@@ -28,23 +28,23 @@ class Calculator {
   }
 
   initializeThemeSwitcher() {
-    const themeToggle = document.getElementById('themeToggle');
-    const themes = ['dark', 'light', 'purple'];
-    let currentThemeIndex = 0;
-    
-    // Set initial theme
-    themeToggle.setAttribute('data-theme', themes[currentThemeIndex]);
-    
-    themeToggle.addEventListener('click', () => {
-      currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-      const newTheme = themes[currentThemeIndex];
-      this.switchTheme(newTheme);
-      themeToggle.setAttribute('data-theme', newTheme);
+    const themeOptions = document.querySelectorAll('.theme-option');
+    themeOptions.forEach(option => {
+      option.addEventListener('click', (e) => {
+        const theme = e.target.dataset.theme;
+        this.switchTheme(theme);
+      });
     });
   }
 
   switchTheme(theme) {
     document.body.setAttribute('data-theme', theme);
+    
+    // Update active theme indicator
+    document.querySelectorAll('.theme-option').forEach(option => {
+      option.classList.remove('active');
+    });
+    document.querySelector(`[data-theme="${theme}"]`).classList.add('active');
   }
 
   inputNumber(num) {
