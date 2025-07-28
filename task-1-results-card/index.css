@@ -1,3 +1,149 @@
-h1 {
-    color: orange;
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Layout container */
+.container {
+  display: flex;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 90%;
+}
+
+/* Result Card */
+.result-card {
+  flex: 1;
+  background: linear-gradient(180deg, #7755f8, #4e21ca);
+  color: white;
+  padding: 40px 30px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.result-card .section-title {
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.score-circle {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.score-circle .total {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.score-comment h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.score-comment p {
+  font-size: 0.9rem;
+  color: #ddd;
+  line-height: 1.4;
+}
+
+/* Summary Card */
+.summary-card {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 0 20px 20px 0;
+}
+
+.summary-card .section-title {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.score-list {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.score-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.score-item .value {
+  color: #000; 
+}
+
+.score-item .value .total-score {
+  color: #888 ; 
+  font-weight: normal;
+  opacity: 0.7; 
+}
+
+
+/* Category colors */
+.reaction {
+  background-color: #fff6f5;
+  color: #e16b6b;
+}
+
+.memory {
+  background-color: #fffbf0;
+  color: #e1b860;
+}
+
+.verbal {
+  background-color: #f2fbfa;
+  color: #43b49f;
+}
+
+.visual {
+  background-color: #f3f4fd;
+  color: #4d55e2;
+}
+
+.continue-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(180deg, #7755f8, #4e21ca);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.continue-btn:hover {
+  background: linear-gradient(180deg, #6644dd, #3d19a7);
 }

@@ -1,3 +1,292 @@
-h1 {
-    color: orange;
+/* Reset and base styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background image with grayscale filter */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/bows-of-boats-on-shore-of-lake-victoria-kenya-E7B1E2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+    z-index: -2;
+}
+
+/* White overlay for left panel */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    background-color: white;
+    z-index: -1;
+}
+
+/* Main page wrapper */
+.page-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Left panel with logo and footer */
+.left-panel {
+    flex: 0 0 25%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.logo {
+    padding: 20px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.footer {
+    padding: 20px;
+    font-size: 0.8em;
+    color: #888;
+}
+
+/* Right panel containing login box */
+.right-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+/* Login box */
+.login-box {
+    position: absolute;
+    background-color: white;
+    /* padding: 30px 40px; */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    min-height: 400px;
+    max-width: 90%;
+    box-sizing: border-box;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+.login-box .login-form{
+    margin: 30px 40px;
+}
+/* Login header styling */
+.login-header {
+    display: flex;
+    align-items: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0;
+    border-radius: 0;
+    /* margin: -30px -40px 25px -40px; */
+}
+
+.login-header .icon {
+    font-size: 1.2em;
+    background-color: #2F4F4F;
+    padding: 20px 17px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-header h2 {
+    margin: 0;
+    padding-left: 15px;
+    font-size: 1.1em;
+    font-weight: normal;
+}
+
+/* Form styling */
+.login-form p {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.login-form label {
+    display: inline-block;
+    width: 30%;
+    font-size: 0.85em;
+    color: #333;
+    margin-bottom: 20px;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.login-form input[type="text"] {
+    display: inline-block;
+    width: 68%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    vertical-align: middle;
+    font-size: 0.9em;
+}
+
+/* Password field with eye icon */
+.password-field {
+    position: relative;
+    display: inline-block;
+    width: 68%;
+    margin-bottom: 25px;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.password-field input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    font-size: 0.9em;
+}
+
+.password-field .eye-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 0.9em;
+}
+
+/* Submit button */
+.login-form button {
+    background-color: #2F4F4F;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    float: right;
+    margin-top: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.login-form button:hover {
+    background-color: #1a2233;
+}
+
+/* Form footer */
+.form-footer {
+    height: 48px;
+    min-width: 100%;
+    border-top: 1px solid #ccc; 
+    background-color: #f0f0f0; 
+    text-align: center; 
+    padding-top: 10px; 
+    margin-top: 150px; 
+}
+
+/* Tablet responsive styles */
+@media (max-width: 768px) {
+    .page-wrapper {
+        flex-direction: column;
+    }
+
+    body::after {
+        width: 100%;
+        height: 25%;
+    }
+
+    body::before {
+        top: 25%;
+        height: 75%;
+    }
+
+    .left-panel {
+        flex: 0 0 auto;
+        width: 100%;
+        padding-bottom: 0;
+    }
+
+    .footer {
+        padding-top: 0;
+        text-align: center;
+    }
+
+    .right-panel {
+        flex: 1;
+        width: 100%;
+    }
+
+    .login-box {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 400px;
+        min-height: 350px;
+    }
+
+    .login-form label,
+    .login-form input[type="text"],
+    .password-field {
+        display: block;
+        width: 100%;
+        margin-bottom: 18px;
+    }
+}
+
+/* Mobile responsive styles */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 20px 25px;
+        min-height: 320px;
+    }
+
+    .login-header {
+        margin: -20px -25px 20px -25px;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .password-field {
+        width: 100%;
+    }
 }
