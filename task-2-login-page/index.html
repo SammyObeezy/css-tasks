@@ -2,45 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Task 1 Results Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2 Log In Page</title>
     <link href="index.css" rel="stylesheet">
 </head>
 <body>
-    <main class="container">
-        <section class="result-card">
-            <h2 class="section-title">Your Result</h2>
-            <div class="score-circle">
-                <span class="score">76</span>
-                <span class="total">of 100</span>
+    <div class="page-wrapper">
+        <div class="left-panel">
+            <div class="logo">
+                <img src="assets/WhatsApp Image 2025-07-28 at 12.37.32.jpeg" alt="BNG Logo">
             </div>
-            <div class="score-comment">
-                <h3>Great</h3>
-                <p>You scored higher than 65% of the people who have taken these tests.</p>
-            </div>
-        </section>
+            <footer class="footer">
+                <p>© All Rights Reserved</p>
+            </footer>
+        </div>
 
-        <section class="summary-card">
-            <h2 class="section-title">Summary</h2>
-            <ul class="score-list">
-                <li class="score-item reaction">
-                    <span class="label">⚡ Reaction</span>
-                    <span class="value">80 <span class="total-score">/ 100</span></span>
-                </li>
-                <li class="score-item memory">
-                    <span class="label">🧠 Memory</span>
-                    <span class="value">92 <span class="total-score">/ 100</span></span>
-                </li>
-                <li class="score-item verbal">
-                    <span class="label">💬 Verbal</span>
-                    <span class="value">61 <span class="total-score">/ 100</span></span>
-                </li>
-                <li class="score-item visual">
-                    <span class="label">👁️ Visual</span>
-                    <span class="value">73 <span class="total-score">/ 100</span></span>
-                </li>
-            </ul>
-            <button class="continue-btn">Continue</button>
-        </section>
-    </main>
+        <div class="right-panel">
+            <div class="login-box">
+                <div class="login-header">
+                    <span class="icon">👤</span>
+                    <h2>User Login</h2>
+                </div>
+
+                <form class="login-form">
+                    <p>Enter your username and password</p>
+
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+
+                    <label for="password">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="password" name="password" required>
+                        <span class="eye-icon">👁️</span>
+                    </div>
+
+                    <button type="submit">Sign In</button>
+                </form>
+                <div class="form-footer"></div>
+            </div>
+        </div>
+    </div>
+     
 </body>
 </html>
