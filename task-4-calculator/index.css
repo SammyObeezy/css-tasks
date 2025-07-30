@@ -63,7 +63,7 @@
 }
 
 body {
-  font-family: 'Spartan', sans-serif;
+  font-family: 'League Spartan', 'Spartan', sans-serif;
   background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
@@ -77,20 +77,34 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
-  max-width: 400px;
-  margin-bottom: 30px;
+  max-width: 440px;
   color: var(--display-text);
 }
 
 .logo {
   font-size: 32px;
   font-weight: bold;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
 }
 
 .theme-switcher {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.theme-numbers {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.theme-bottom {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -100,13 +114,14 @@ body {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: bold;
 }
 
 .theme-toggle {
-  width: 60px;
-  height: 24px;
+  width: 48px;
+  height: 18px;
   background: var(--calc-bg);
-  border-radius: 15px;
+  border-radius: 9px;
   border: none;
   position: relative;
   cursor: pointer;
@@ -115,33 +130,34 @@ body {
 }
 
 .toggle-slider {
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
   background: var(--special-bg);
   border-radius: 50%;
   position: absolute;
-  top: 2px;
-  left: 2px;
+  top: 3px;
+  left: 3px;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .theme-toggle[data-theme="light"] .toggle-slider {
-  transform: translateX(18px);
+  transform: translateX(14px);
 }
 
 .theme-toggle[data-theme="purple"] .toggle-slider {
-  transform: translateX(36px);
+  transform: translateX(28px);
 }
 
-.calculator-flexbox-container {
-  background: var(--calc-bg);
+.calculator-container {
+  /* background: var(--calc-bg); */
   border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 32px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 00);
   width: 100%;
-  max-width: 400px;
+  max-width: 480px;
   transition: background-color 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 00);
 }
 
 .calculator-display {
@@ -150,39 +166,45 @@ body {
   font-size: 48px;
   font-weight: bold;
   text-align: right;
-  padding: 25px 20px;
+  padding: 30px 25px;
   border-radius: 10px;
   margin-bottom: 25px;
-  min-height: 80px;
+  min-height: 88px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   overflow: hidden;
   transition: all 0.3s ease;
+  letter-spacing: -1px;
 }
 
-.calculator-buttons-flexbox {
+.calculator-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  padding: 20px;
+  gap: 18px;
+  background: var(--calc-bg);
 }
 
 button {
   border: none;
   border-radius: 10px;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
-  padding: 20px;
+  padding: 20px 10px;
   cursor: pointer;
   transition: all 0.1s ease;
   font-family: inherit;
   position: relative;
-  box-shadow: 0 4px 0 var(--number-shadow);
+  min-height: 64px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button:active {
   transform: translateY(2px);
-  box-shadow: 0 2px 0 var(--number-shadow);
 }
 
 .button-number {
@@ -196,38 +218,13 @@ button:active {
 }
 
 .button-operator {
-  background: var(--number-bg);
-  color: var(--number-text);
+  background: var(--operator-bg);
+  color: var(--operator-text);
   box-shadow: 0 4px 0 var(--operator-shadow);
 }
 
 .button-operator:active {
   box-shadow: 0 2px 0 var(--operator-shadow);
-}
-
-.button-clear, .button-reset {
-  background: var(--reset-bg);
-  color: var(--reset-text);
-  box-shadow: 0 4px 0 var(--reset-shadow);
-}
-
-.button-clear:active, .button-reset:active {
-  box-shadow: 0 2px 0 var(--reset-shadow);
-}
-
-.button-equals {
-  background: var(--special-bg);
-  color: var(--special-text);
-  box-shadow: 0 4px 0 var(--special-shadow);
-  grid-column: span 2;
-}
-
-.button-equals:active {
-  box-shadow: 0 2px 0 var(--special-shadow);
-}
-
-.button-zero {
-  grid-column: span 2;
 }
 
 .button-del {
@@ -242,22 +239,151 @@ button:active {
 }
 
 .button-reset {
+  background: var(--operator-bg);
+  color: var(--operator-text);
+  box-shadow: 0 4px 0 var(--operator-shadow);
   grid-column: span 2;
   font-size: 20px;
 }
 
+.button-reset:active {
+  box-shadow: 0 2px 0 var(--operator-shadow);
+}
+
+.button-equals {
+  background: var(--special-bg);
+  color: var(--special-text);
+  box-shadow: 0 4px 0 var(--special-shadow);
+  grid-column: span 2;
+}
+
+.button-equals:active {
+  box-shadow: 0 2px 0 var(--special-shadow);
+}
+
+@media (max-width: 768px) {
+  .calculator-container {
+    max-width: 420px;
+    padding: 28px;
+  }
+  
+  .calculator-display {
+    font-size: 42px;
+    padding: 25px 20px;
+    min-height: 80px;
+  }
+  
+  button {
+    font-size: 28px;
+    padding: 18px 8px;
+    min-height: 58px;
+  }
+  
+  .button-del, .button-reset {
+    font-size: 18px;
+  }
+  
+  .calculator-buttons {
+    gap: 16px;
+  }
+}
+
 @media (max-width: 480px) {
-  .calculator-flexbox-container {
-    padding: 20px;
+  body {
+    padding: 15px;
+  }
+  
+  .header {
+    margin-bottom: 25px;
+  }
+  
+  .logo {
+    font-size: 28px;
+  }
+  
+  .calculator-container {
+    max-width: 100%;
+    padding: 24px;
   }
   
   .calculator-display {
     font-size: 36px;
     padding: 20px 15px;
+    min-height: 75px;
   }
   
   button {
     font-size: 24px;
-    padding: 15px;
+    padding: 16px 6px;
+    min-height: 52px;
+  }
+  
+  .button-del, .button-reset {
+    font-size: 16px;
+  }
+  
+  .calculator-buttons {
+    gap: 14px;
+  }
+  
+  .theme-label {
+    font-size: 11px;
+  }
+  
+  .theme-numbers {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .calculator-container {
+    padding: 20px;
+  }
+  
+  .calculator-display {
+    font-size: 32px;
+    padding: 18px 12px;
+    min-height: 70px;
+  }
+  
+  button {
+    font-size: 22px;
+    padding: 14px 4px;
+    min-height: 48px;
+  }
+  
+  .button-del, .button-reset {
+    font-size: 14px;
+  }
+  
+  .calculator-buttons {
+    gap: 12px;
+  }
+  
+  .logo {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 769px) {
+  .calculator-container {
+    max-width: 520px;
+    padding: 36px;
+  }
+  
+  .calculator-display {
+    font-size: 52px;
+    padding: 35px 30px;
+    min-height: 95px;
+  }
+  
+  button {
+    font-size: 36px;
+    padding: 24px 12px;
+    min-height: 68px;
+  }
+  
+  .calculator-buttons {
+    gap: 22px;
   }
 }

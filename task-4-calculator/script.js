@@ -1,164 +1,120 @@
-class Calculator {
-  constructor() {
-    this.display = document.getElementById('display');
-    this.currentInput = '399,981';
-    this.previousInput = '';
-    this.operation = null;
-    this.shouldResetDisplay = false;
-    
-    this.initializeEventListeners();
-    this.initializeThemeSwitcher();
-    this.updateDisplay();
-  }
+let currentInput = '';
+let previousInput = '';
+let operator = '';
+let shouldResetDisplay = false;
 
-  initializeEventListeners() {
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach(button => {
-      button.addEventListener('click', (e) => {
-        const action = e.target.dataset.action;
-        const value = e.target.textContent;
+const display = document.getElementById('display');
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
 
-        if (action) {
-          this.handleAction(action);
-        } else if (!isNaN(value)) {
-          this.inputNumber(value);
-        }
-      });
-    });
-  }
+// Theme cycling
+let currentTheme = 0;
+const themes = ['dark', 'light', 'purple'];
 
-  initializeThemeSwitcher() {
-    const themeOptions = document.querySelectorAll('.theme-option');
-    themeOptions.forEach(option => {
-      option.addEventListener('click', (e) => {
-        const theme = e.target.dataset.theme;
-        this.switchTheme(theme);
-      });
-    });
-  }
+themeToggle.addEventListener('click', () => {
+  currentTheme = (currentTheme + 1) % themes.length;
+  const theme = themes[currentTheme];
+  body.setAttribute('data-theme', theme);
+  themeToggle.setAttribute('data-theme', theme);
+});
 
-  switchTheme(theme) {
-    document.body.setAttribute('data-theme', theme);
-    
-    // Update active theme indicator
-    document.querySelectorAll('.theme-option').forEach(option => {
-      option.classList.remove('active');
-    });
-    document.querySelector(`[data-theme="${theme}"]`).classList.add('active');
-  }
-
-  inputNumber(num) {
-    if (this.shouldResetDisplay) {
-      this.currentInput = '';
-      this.shouldResetDisplay = false;
-    }
-
-    if (this.currentInput === '0' && num !== '.') {
-      this.currentInput = num;
-    } else {
-      this.currentInput += num;
-    }
-    
-    this.updateDisplay();
-  }
-
-  handleAction(action) {
-    switch (action) {
-      case 'decimal':
-        if (this.currentInput.indexOf('.') === -1) {
-          this.currentInput += '.';
-          this.updateDisplay();
-        }
-        break;
-      case 'delete':
-        this.delete();
-        break;
-      case 'reset':
-        this.reset();
-        break;
-      case 'add':
-      case 'subtract':
-      case 'multiply':
-      case 'divide':
-        this.setOperation(action);
-        break;
-      case 'equals':
-        this.calculate();
-        break;
-    }
-  }
-
-  delete() {
-    if (this.currentInput.length > 1) {
-      this.currentInput = this.currentInput.slice(0, -1);
-    } else {
-      this.currentInput = '0';
-    }
-    this.updateDisplay();
-  }
-
-  reset() {
-    this.currentInput = '0';
-    this.previousInput = '';
-    this.operation = null;
-    this.shouldResetDisplay = false;
-    this.updateDisplay();
-  }
-
-  setOperation(op) {
-    if (this.operation && !this.shouldResetDisplay) {
-      this.calculate();
-    }
-    
-    this.operation = op;
-    this.previousInput = this.currentInput;
-    this.shouldResetDisplay = true;
-  }
-
-  calculate() {
-    if (!this.operation || this.shouldResetDisplay) return;
-
-    const prev = parseFloat(this.previousInput.replace(/,/g, ''));
-    const current = parseFloat(this.currentInput.replace(/,/g, ''));
-    let result;
-
-    switch (this.operation) {
-      case 'add':
-        result = prev + current;
-        break;
-      case 'subtract':
-        result = prev - current;
-        break;
-      case 'multiply':
-        result = prev * current;
-        break;
-      case 'divide':
-        result = current !== 0 ? prev / current : 0;
-        break;
-      default:
-        return;
-    }
-
-    this.currentInput = result.toString();
-    this.operation = null;
-    this.previousInput = '';
-    this.shouldResetDisplay = true;
-    this.updateDisplay();
-  }
-
-  formatNumber(num) {
-    const parts = num.split('.');
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    return parts.join('.');
-  }
-
-  updateDisplay() {
-    const formattedNumber = this.formatNumber(this.currentInput);
-    this.display.textContent = formattedNumber;
+// Calculator functionality
+function updateDisplay(value) {
+  if (value.length > 10) {
+    display.textContent = parseFloat(value).toExponential(5);
+  } else {
+    display.textContent = formatNumber(value);
   }
 }
 
-// Initialize calculator when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  new Calculator();
+function formatNumber(num) {
+  if (num.includes('.')) {
+    const parts = num.split('.');
+    return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '.' + parts[1];
+  }
+  return num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function calculate() {
+  const prev = parseFloat(previousInput);
+  const current = parseFloat(currentInput);
+  
+  if (isNaN(prev) || isNaN(current)) return;
+  
+  let result;
+  switch (operator) {
+    case '+':
+      result = prev + current;
+      break;
+    case '-':
+      result = prev - current;
+      break;
+    case '×':
+      result = prev * current;
+      break;
+    case '/':
+      result = prev / current;
+      break;
+    default:
+      return;
+  }
+  
+  currentInput = result.toString();
+  operator = '';
+  previousInput = '';
+  shouldResetDisplay = true;
+}
+
+// Button event listeners
+document.addEventListener('click', (e) => {
+  if (e.target.matches('.button-number')) {
+    const value = e.target.dataset.value || e.target.textContent;
+    
+    if (shouldResetDisplay) {
+      currentInput = '';
+      shouldResetDisplay = false;
+    }
+    
+    if (value === '.' && currentInput.includes('.')) return;
+    
+    currentInput += value;
+    updateDisplay(currentInput);
+  }
+  
+  if (e.target.matches('.button-operator')) {
+    if (currentInput === '') return;
+    
+    if (previousInput !== '' && operator !== '') {
+      calculate();
+      updateDisplay(currentInput);
+    }
+    
+    operator = e.target.textContent;
+    previousInput = currentInput;
+    currentInput = '';
+  }
+  
+  if (e.target.matches('.button-equals')) {
+    if (previousInput !== '' && currentInput !== '' && operator !== '') {
+      calculate();
+      updateDisplay(currentInput);
+    }
+  }
+  
+  if (e.target.matches('.button-del')) {
+    currentInput = currentInput.slice(0, -1);
+    updateDisplay(currentInput || '0');
+  }
+  
+  if (e.target.matches('.button-reset')) {
+    currentInput = '';
+    previousInput = '';
+    operator = '';
+    shouldResetDisplay = false;
+    updateDisplay('0');
+  }
 });
+
+// Initialize display
+updateDisplay('399,981');
+currentInput = '399981';
