@@ -11,23 +11,23 @@ body {
 }
 
 .calculator-container {
-    width: 800px; /* Fixed width for the main container */
+    width: 800px; 
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Ensures rounded corners apply to children */
-    position: relative; /* For positioning inner elements if needed */
+    overflow: hidden; 
+    position: relative; 
 }
 
 .calculator-form-section {
-    float: left; /* Position form section to the left */
-    width: 55%; /* Allocate width for the form section */
+    float: left; 
+    width: 55%; 
     padding: 30px;
     box-sizing: border-box;
 }
 
 .calculator-header {
-    overflow: hidden; /* Clear floats for its children */
+    overflow: hidden; 
     margin-bottom: 25px;
 }
 
