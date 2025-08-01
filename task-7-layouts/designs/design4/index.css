@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #9ACD32;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    background-color: #9ACD32;
+    padding: 20px;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 10px solid white;
+    height: 80px;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+.left-column {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    border-right: 10px solid white;
+}
+
+.ads {
+    background-color: #9ACD32;
+    padding: 20px;
+    color: #333;
+    font-weight: bold;
+    height: 100px;
+    border-bottom: 10px solid white;
+}
+
+.nav {
+    background-color: #9ACD32;
+    padding: 20px;
+    color: #333;
+    font-weight: bold;
+    flex: 1;
+}
+
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.article {
+    background-color: #9ACD32;
+    padding: 20px;
+    color: #333;
+    font-weight: bold;
+    flex: 1;
+    border-bottom: 10px solid white;
+}
+
+.footer {
+    background-color: #9ACD32;
+    padding: 20px;
+    color: #333;
+    font-weight: bold;
+    height: 80px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .left-column {
+        width: 100%;
+        flex-direction: row;
+        border-right: none;
+        border-bottom: 10px solid white;
+        height: 100px;
+    }
+    
+    .ads {
+        height: 100px;
+        border-bottom: none;
+        border-right: 10px solid white;
+        flex: 1;
+    }
+    
+    .nav {
+        flex: 1;
+    }
+    
+    .right-column {
+        flex: 1;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header,
+    .ads,
+    .nav,
+    .article,
+    .footer {
+        padding: 15px;
+        font-size: 14px;
+    }
+    
+    .header,
+    .footer {
+        height: 60px;
+    }
+    
+    .left-column {
+        height: 80px;
+    }
+    
+    .ads {
+        height: 80px;
+    }
+}
