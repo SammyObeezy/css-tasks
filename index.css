@@ -30,7 +30,7 @@ body::before {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
     min-height: 100vh;
@@ -95,16 +95,15 @@ body::before {
     opacity: 0.9;
 }
 
-/* Navigation Styles */
-.navigation {
+/* Two Column Grid Layout */
+.two-column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1.5rem;
     flex: 1;
     margin-bottom: 2rem;
-}
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    min-height: 800px;
 }
 
 .task-card {
@@ -339,9 +338,11 @@ body::before {
         margin-bottom: 2rem;
     }
     
-    .cards-grid {
+    .two-column-grid {
         grid-template-columns: 1fr;
+        grid-template-rows: repeat(10, 1fr);
         gap: 1rem;
+        min-height: 1200px;
     }
     
     .task-card {

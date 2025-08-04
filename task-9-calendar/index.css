@@ -129,7 +129,6 @@ body {
     font-size: 13px;
     font-weight: 600;
     color: #6b7280;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
     text-align: left;
     display: flex;
@@ -138,6 +137,13 @@ body {
 
 .day-header:last-child {
     border-right: none;
+}
+
+/* Weekend Headers (Friday and Saturday) */
+.day-header:nth-child(6),
+.day-header:nth-child(7) {
+    background-color: #e9ecef;
+    color: #495057;
 }
 
 /* Calendar Cells */
@@ -157,6 +163,19 @@ body {
 
 .calendar-cell:hover {
     background-color: #f8f9fa;
+}
+
+/* Weekend Cells (Friday and Saturday columns) */
+.calendar-cell:nth-child(7n+6),
+.calendar-cell:nth-child(7n+7),
+.calendar-cell:nth-child(7n) {
+    background-color: #f1f3f4;
+}
+
+.calendar-cell:nth-child(7n+6):hover,
+.calendar-cell:nth-child(7n+7):hover,
+.calendar-cell:nth-child(7n):hover {
+    background-color: #e9ecef;
 }
 
 /* Date Numbers */
