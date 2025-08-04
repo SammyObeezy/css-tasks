@@ -1,28 +1,121 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Tasks</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<main>
-    <header>
-        <h1>CSS Tasks</h1>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="task-1-results-card/index.html">Task 1 Results Card</a></li>
-            <li><a href="task-2-login-page/index.html">Task 2 Log In</a></li>
-            <li><a href="task-3-mortgage-calculator/index.html">Task 3 Mortgage Calculator</a></li>
-            <li><a href="task-4-calculator/index.html">Task 4 Calculator</a></li>
-            <li><a href="task-5-contact-form/index.html">Task 5 Contact</a></li>
-            <li><a href="task-6-chat-input/index.html">Task 6 Chat-Input</a></li>
-            <li><a href="task-7-layouts/index.html">Task 7 Layouts</a></li>
-            <li><a href="task-8-image-gallery/index.html">Task 8 Image Gallery</a></li>
-            <li><a href="task-9-calendar/index.html">Task 9 Calender</a></li>
-            <li><a href="task-10-chat/index.html">Task 10 Chat</a></li>
-        </ul>
-    </nav>
-</main>
-
+    <main class="container">
+        <header class="header">
+            <h1 class="title">CSS Tasks</h1>
+            <p class="subtitle">A collection of CSS implementation exercises</p>
+        </header>
+        
+        <nav class="navigation">
+            <div class="cards-grid">
+                <div class="task-card">
+                    <div class="card-header">
+                        <span class="task-number">01</span>
+                        <h3 class="task-name">Results Card</h3>
+                    </div>
+                    <p class="task-description">Interactive results display component with modern styling</p>
+                    <a href="task-1-results-card/index.html" class="card-button">View Task</a>
+                </div>
+                
+                <div class="task-card">
+                    <div class="card-header">
+                        <span class="task-number">02</span>
+                        <h3 class="task-name">Login Page</h3>
+                    </div>
+                    <p class="task-description">Modern authentication interface with form validation</p>
+                    <a href="task-2-login-page/index.html" class="card-button">View Task</a>
+                </div>
+                
+                <div class="task-card">
+                    <div class="card-header">
+                        <span class="task-number">03</span>
+                        <h3 class="task-name">Mortgage Calculator</h3>
+                    </div>
+                    <p class="task-description">Financial calculation tool with interactive inputs</p>
+                    <a href="task-3-mortgage-calculator/index.html" class="card-button">View Task</a>
+                </div>
+                
+                <div class="task-card">
+                    <div class="card-header">
+                        <span class="task-number">04</span>
+                        <h3 class="task-name">Calculator</h3>
+                    </div>
+                    <p class="task-description">Interactive calculation interface with button grid</p>
+                    <a href="task-4-calculator/index.html" class="card-button">View Task</a>
+                </div>
+                
+                <div class="task-card">
+                    <div class="card-header">
+                        <span class="task-number">05</span>
+                        <h3 class="task-name">Contact Form</h3>
+                    </div>
+                    <p class="task-description">User communication interface with validation</p>
+                    <a href="task-5-contact-form/index.html" class="card-button">View Task</a>
+                </div>
+                
+                <div class="task-card">
+                    <div class="card-header">
+                        <span class="task-number">06</span>
+                        <h3 class="task-name">Chat Input</h3>
+                    </div>
+                    <p class="task-description">Messaging interface component with emoji support</p>
+                    <a href="task-6-chat-input/index.html" class="card-button">View Task</a>
+                </div>
+                
+                <div class="task-card">
+                    <div class="card-header">
+                        <span class="task-number">07</span>
+                        <h3 class="task-name">Layouts</h3>
+                    </div>
+                    <p class="task-description">Responsive grid and flexbox design patterns</p>
+                    <a href="task-7-layouts/index.html" class="card-button">View Task</a>
+                </div>
+                
+                <div class="task-card">
+                    <div class="card-header">
+                        <span class="task-number">08</span>
+                        <h3 class="task-name">Image Gallery</h3>
+                    </div>
+                    <p class="task-description">Visual content showcase with hover effects</p>
+                    <a href="task-8-image-gallery/index.html" class="card-button">View Task</a>
+                </div>
+                
+                <div class="task-card">
+                    <div class="card-header">
+                        <span class="task-number">09</span>
+                        <h3 class="task-name">Calendar</h3>
+                    </div>
+                    <p class="task-description">Date navigation and display with interactions</p>
+                    <a href="task-9-calendar/index.html" class="card-button">View Task</a>
+                </div>
+                
+                <div class="task-card">
+                    <div class="card-header">
+                        <span class="task-number">10</span>
+                        <h3 class="task-name">Chat Interface</h3>
+                    </div>
+                    <p class="task-description">Real-time messaging application interface</p>
+                    <a href="task-10-chat/index.html" class="card-button">View Task</a>
+                </div>
+            </div>
+        </nav>
+        
+        <footer class="footer">
+            <p class="footer-text">Complete all tasks to master CSS fundamentals</p>
+            <div class="progress-indicator">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <span class="progress-text">0/10 completed</span>
+            </div>
+        </footer>
+    </main>
 </body>
 </html>

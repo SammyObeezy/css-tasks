@@ -3,56 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Gallery Layout 2</title>
-    <link href="index.css" rel="stylesheet">
+    <title>Travel Photo Grid</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="gallery-container">
-        <!-- Main content area with left column, center, and right column -->
-        <div class="main-section">
-            <!-- Left column - 3 small images -->
-            <div class="side-column">
-                <div class="small-image">
-                    <img src="assets/82cbb966-42dd-4621-b580-57559165336d.jpeg" alt="Beach landscape">
-                </div>
-                <div class="small-image middle-image">
-                    <img src="assets/3a4f9702-27c0-4b10-be54-90b2254d2552.jpeg" alt="Mountain stream">
-                </div>
-            </div>
-
-            <!-- Center - Large image -->
-            <div class="center-image">
-                <img src="assets/1e4a0312-326a-4b98-9b67-50f2c7488452.jpeg" alt="Nature trail with hiker">
-            </div>
-
-            <!-- Right column - 3 small images -->
-            <div class="side-column">
-                <div class="small-image">
-                    <img src="assets/3a4f9702-27c0-4b10-be54-90b2254d2552.jpeg" alt="Tropical cove">
-                </div>
-                <div class="small-image middle-image">
-                    <img src="assets/436e57aa-43e5-492b-9e46-eab402ba47a5.jpeg" alt="Tropical flowers">
-                </div>
-            </div>
+    <div class="photo-grid">
+        <!-- All images are now direct children with grid-area assignments -->
+        <div class="photo-item photo-1">
+            <img src="assets/0889b112-bc91-47d6-946d-3832a311777e.jpeg" alt="Tropical Beach">
         </div>
 
-        <!-- Bottom row - 5 small images -->
-        <div class="bottom-row">
-            <div class="small-image">
-                <img src="assets/82cbb966-42dd-4621-b580-57559165336d.jpeg" alt="Transportation">
-            </div>
-            <div class="small-image">
-                <img src="assets/b52171f0-f111-47af-860a-d391c171159c.jpeg" alt="Beach with boats">
-            </div>
-            <div class="small-image">
-                <img src="assets/Bus stop on Behance.jpeg" alt="Food truck">
-            </div>
-            <div class="small-image">
-                <img src="assets/f1b806b7-2523-47e1-a69a-bc5e73498d41.jpeg" alt="Resort view">
-            </div>
-            <div class="small-image">
-                <img src="assets/0889b112-bc91-47d6-946d-3832a311777e.jpeg" alt="Cafe scene">
-            </div>
+        <div class="photo-item photo-2">
+            <img src="assets/1e4a0312-326a-4b98-9b67-50f2c7488452.jpeg" alt="Lake View">
+        </div>
+
+        <div class="photo-item photo-3">
+            <img src="assets/1e4a0312-326a-4b98-9b67-50f2c7488452.jpeg" alt="Mountain Stream">
+        </div>
+
+        <!-- Main central image (spans middle 3 columns and 2 rows) -->
+        <div class="photo-item photo-4">
+            <img src="assets/1e4a0312-326a-4b98-9b67-50f2c7488452.jpeg" alt="Main Trail Path">
+        </div>
+
+        <div class="photo-item photo-5">
+            <img src="assets/1e4a0312-326a-4b98-9b67-50f2c7488452.jpeg" alt="Hidden Cove">
+        </div>
+
+        <!-- Bottom row images (each gets its own grid area) -->
+        <div class="bottom-row-item bottom-1">
+            <img src="assets/1e4a0312-326a-4b98-9b67-50f2c7488452.jpeg" alt="Local Transport">
+        </div>
+
+        <div class="bottom-row-item bottom-2">
+            <img src="assets/1e4a0312-326a-4b98-9b67-50f2c7488452.jpeg" alt="Boat Tour">
+        </div>
+
+        <div class="bottom-row-item bottom-3">
+            <img src="assets/1e4a0312-326a-4b98-9b67-50f2c7488452.jpeg" alt="Local Bus">
+        </div>
+
+        <div class="bottom-row-item bottom-4">
+            <img src="assets/1e4a0312-326a-4b98-9b67-50f2c7488452.jpeg" alt="Building">
+        </div>
+
+        <div class="bottom-row-item bottom-5">
+            <img src="assets/1e4a0312-326a-4b98-9b67-50f2c7488452.jpeg" alt="Cafe View">
         </div>
     </div>
 </body>
