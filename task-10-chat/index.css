@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
     background: #f8fafc;
     height: 100vh;
     overflow: hidden;
@@ -258,10 +258,12 @@ body {
 /* ===== MESSAGES LIST - UPDATED SECTION ===== */
 .messages-list {
     overflow-y: auto;
+    overflow-x: hidden;
     display: grid;
     align-content: start;
     padding-right: 4px;
-    max-height: calc(100vh - 180px);
+    max-height: calc(100vh - 200px);
+    min-height: 0;
 }
 
 .message-item {
