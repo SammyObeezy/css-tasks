@@ -498,6 +498,7 @@ body {
 .chat-messages {
     padding: 20px;
     overflow-y: auto;
+    height: calc(100vh - 300px);
     background: #f9fafb;
     display: grid;
     align-content: start;
