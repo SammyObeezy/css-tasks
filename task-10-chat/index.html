@@ -167,7 +167,6 @@
     <div class="chat-panel">
         <div class="chat-header">
             <div class="chat-user-info">
-                <div class="chat-avatar">JH</div>
                 <div class="chat-user-details">
                     <h3>Julian Herbst</h3>
                     <span class="applied-position">applied for UI / UX Designer</span>
@@ -199,7 +198,7 @@
             
             <!-- User Message (Received from Julian's perspective for the company) -->
             <div class="message received">
-                <img src="assets/Careers.jpeg" alt="Julian Herbst" class="message-avatar online-status">
+                <div class="chat-avatar">JH</div>
                 <div class="message-bubble">
                     <div class="message-header">
                         <span class="sender">Julian Herbst</span>
@@ -227,23 +226,23 @@
         </div>
 
         <!-- Message Input -->
-        <div class="message-input-container">
+       <div class="message-input-container">
             <div class="message-input">
                 <div class="input-toolbar">
-                    <span class="attachment-icon">📎</span>
-                    <span class="bold-icon">B</span>
-                    <span class="italic-icon">I</span>
-                    <span class="list-icon">≡</span>
-                    <span class="numbered-list-icon">1.</span>
-                    <span class="link-icon">🔗</span>
                 </div>
                 <textarea placeholder="Write your message"></textarea>
                 <div class="input-actions">
+                    <span class="attachment-icon">📎</span>
+                    <span class="bold-icon"><strong>B</strong></span>
+                    <span class="italic-icon"><em>I</em></span>
+                    <span class="list-icon">≡</span>
+                    <span class="numbered-list-icon">1.</span>
+                    <span class="link-icon">🔗</span>
+                    <div class="spacer"></div>
                     <span class="emoji-icon">😊</span>
                     <span class="more-options">⋮</span>
-                    <div></div>
-                    <button class="send-btn">Send</button>
-                    <span class="send-dropdown">▼</span>
+                    <button class="send-btn">Send  <span class="send-dropdown">▼</span></button>
+                    
                 </div>
             </div>
         </div>
